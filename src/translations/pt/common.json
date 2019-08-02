@@ -1,0 +1,29 @@
+{
+  "welcome": {
+      "title": "Bemvindo pra {{framework}}",
+      "intro": "To get started, edit <1><0></0></1> and save to reload."
+  },
+  "play_now": "ouvindo",
+  "today": "hoje",
+  "January": "Janeiro",
+  "February": "Fevereiro",
+  "March": "Março",
+  "April": "Abril",
+  "May": "Maio",
+  "June": "Junho",
+  "July": "Julho",
+  "August": "Agosto",
+  "September": "Setembro",
+  "October": "Outubro",
+  "November": "Novembro",
+  "December": "Dezembro",
+  "Su": "DOM",
+  "Mo": "SEG",
+  "Tu": "TER",
+  "We": "QUA",
+  "Th": "QUI",
+  "Fr": "SEX",
+  "Sa": "SAB",
+  "prev": "Ant",
+  "next": "Pro"
+}

@@ -1,0 +1,73 @@
+/* --- MIXINS --- */
+@import '../settings/colors';
+
+/* --- BOX BOXING --- */
+@mixin box-display {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+/* --- FONT --- */
+@mixin font($font: $font-default, $size: 12px, $weight: 400, $color: $black-900) {
+  @include rem('font-size', $size);
+  color: $color;
+  font-family: $font;
+  font-weight: $weight;
+}
+
+/* --- REM --- */
+@mixin rem($property, $px_values) {
+  $baseline_rem: ($font-base-size / 1rem);
+  #{$property}: $px_values;
+
+  // If there is only one (numeric) value, return the property/value line for it.
+  @if type-of($px_values) == 'number' {
+    #{$property}: $px_values / $baseline_rem;
+  }
+  @else {
+    $rem_values: ();
+
+    @each $value in $px_values {
+      @if $value == 0 {
+        $rem_values: append($rem_values, $value);
+      } @else {
+        $rem_values: append($rem_values, ($value / $baseline_rem));
+      }
+
+    }
+
+    // Return the property and its list of converted values
+    #{$property}: $rem_values;
+  }
+}
+
+/* --- SCROLL --- */
+@mixin scrollV($width: 6px, $bg-color: $white-900, $bg-bar-color: $black-900) {
+  &::-webkit-scrollbar-track {
+    background-color: $bg-color;
+  }
+
+  &::-webkit-scrollbar {
+    background-color: $bg-color;
+    width: $width;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $bg-bar-color;
+  }
+}
+
+@mixin scrollH($height: 6px, $bg-color: $white-900, $bg-bar-color: $black-900) {
+  &::-webkit-scrollbar-track {
+    background-color: $bg-color;
+  }
+
+  &::-webkit-scrollbar {
+    background-color: $bg-color;
+    height: $height;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $bg-bar-color;
+  }
+}

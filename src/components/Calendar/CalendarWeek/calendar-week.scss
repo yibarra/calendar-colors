@@ -1,0 +1,57 @@
+/* --- CALENDAR WEEK --- */
+@import './../../../styles/settings/settings';
+@import './../../../styles/tools/mixins';
+
+.calendar {
+  &--week {
+    .calendar {
+      &--day {
+        &[data-weekend="true"] {
+          .dummy {
+            &:before {
+              @include box-display;
+              background-color: $black-900;
+              content: '';
+              height: calc(100% - 3px);
+              left: -3px;
+              position: absolute;
+              top: -1px;
+              width: 2px;
+            }
+          }
+
+          .events {
+            &--item {
+              .event {
+                .address,
+                .description,
+                .hour,
+                .name {
+                  color: var(--background-color);
+                }
+              }
+            }
+          }
+
+          .more {
+            z-index: 1;
+
+            i {
+              color: var(--background-color);
+            }
+          }
+        }
+
+        &[data-today="true"] {
+          & + .calendar--day[data-weekend="true"] {
+            .dummy {
+              &:before {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

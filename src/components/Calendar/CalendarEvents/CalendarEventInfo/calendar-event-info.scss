@@ -1,0 +1,114 @@
+/* --- CALENDAR EVENT INFO --- */
+@import './../../../../styles/settings/settings';
+@import './../../../../styles/tools/mixins';
+
+.calendar {
+  &--day {
+    .events {
+      margin: 0;
+      list-style: none;
+      padding: 2px 4px;
+      width: 100%;
+
+      &--item {
+        @include box-display;
+        display: none;
+        float: left;
+        position: relative;
+        width: 100%;
+
+        .event {
+          @include box-display;
+          float: left;
+          margin: 0;
+          padding: 5px 5px 10px;
+          position: relative;
+          width: 100%;
+
+          .address,
+          .description,
+          .hour,
+          .name,
+          .site {
+            @include box-display;
+            float: left;
+            overflow: hidden;
+            position: relative;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100%;
+            z-index: 1;
+          }
+
+          .address {
+            @include font($font-default, 11px, 400, $black-900);
+            letter-spacing: 0em;
+            line-height: 1em;
+            padding: 0 0 10px;
+          }
+
+          .description {
+            @include font($font-default, 12px, 400, $black-900);
+            border: none;
+            border-left: 2px solid $black-900;
+            display: none;
+            margin: 0 0 15px;
+            line-height: 1.6em;
+            letter-spacing: -0.05em;
+            padding: 10px 15px;
+            white-space: normal;
+            vertical-align: top;
+
+            &:empty {
+              &:before {
+                content: '...';
+              }
+            }
+          }
+
+          .hour {
+            @include font($font-default, 12px, 700, $black-900);
+            letter-spacing: -0.05em;
+            line-height: 1em;
+          }
+
+          .name {
+            @include font($font-default, 12px, 600, $black-900);
+            letter-spacing: -0.025em;
+            line-height: 1.2em;
+            margin: 0 0 3px 0;
+          }
+
+          .site {
+            @include font($font-default, 13px, 400, $black-900);
+            display: none;
+            margin: 10px 0 0;
+            letter-spacing: 0em;
+            line-height: 1em;
+            padding: 0 0 10px;
+
+            &:empty {
+              display: none;
+            }
+          }
+        }
+
+        &[date-empty="true"] {
+          .event {
+            .address,
+            .name,
+            .hour {
+              &:before {
+                content: '...';
+              }
+            }
+          }
+        }
+
+        &:first-child {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}

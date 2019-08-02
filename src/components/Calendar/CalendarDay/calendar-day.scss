@@ -1,0 +1,297 @@
+/* --- CALENDAR EVENTS --- */
+@import './../../../styles/settings/settings';
+@import './../../../styles/tools/mixins';
+
+@import './../../../styles/components/forms/buttons';
+
+.calendar {
+  &--day {
+    @include box-display;
+    cursor: pointer;
+    padding: 0 2px 15px;
+    pointer-events: auto;
+    position: relative;
+    width: calc(100% / 7);
+
+    .day,
+    .dummy,
+    .events {
+      @include box-display;
+      float: left;
+      margin: 0;
+      position: relative;
+      width: 100%;
+    }
+
+    .btn {
+      @extend %btn-clear;
+      cursor: pointer;
+      display: none;
+      right: 10px;
+      padding: 0;
+      position: absolute;
+      pointer-events: auto;
+      z-index: 11;
+    }
+
+    .day {
+      @include font($font-default, 17px, 700, $black-900);
+      border: none;
+      border-bottom: 1px solid $black-900;
+      letter-spacing: -0.1em;
+      line-height: 1em;
+      padding: 5px;
+      z-index: 2;
+    }
+
+    .dummy {
+      @extend %btn-clear;
+      cursor: pointer;
+      left: 0;
+      height: calc(100% + 5px);
+      position: absolute;
+      top: -9px;
+      z-index: 10;
+    }
+
+    &.disabled {
+      opacity: 0.2;
+      pointer-events: none;
+
+      &:before {
+        display: none;
+      }
+    }
+
+    &.disabled-d {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    &.selected {
+      &:before {
+        opacity: 1;
+      }
+    }
+
+    &.active {
+      display: inline-block;
+    }
+
+    &[data-today="true"] {
+      &:after {
+        border: 1px solid $black-900;
+        content: '';
+        height: calc(100% + 1px);
+        left: 2px;
+        top: -9px;
+        width: calc(100% - 3px);
+      }
+    }
+
+    &[data-weekend="true"] {
+      .calendar--event {
+        .events {
+          &--item {
+            .event {
+              .address,
+              .description,
+              .hour,
+              .name,
+              .site {
+                &:before {
+                  color: var(--background-color);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .day {
+        .number {
+          color: var(--background-color);
+        }
+      }
+
+      &:after {
+        background-color: $black-900;
+        content: '';
+        height: calc(100% + 2px);
+        width: calc(100% - 1px);
+      }
+
+      & + .calendar--day {
+        .dummy {
+          &:before {
+            display: none !important;
+          }
+        }
+      }
+
+      &.disabled {
+        &:after {
+          background-color: rgba($black-900, 0.1);
+        }
+
+        .day {
+          border-bottom-color: $black-900;
+
+          .number {
+            color: $black-900;
+          }
+        }
+
+        .events {
+          &--item {
+            .event {
+              .address,
+              .description,
+              .hour,
+              .name,
+              .site {
+                &:before {
+                  color: $black-900;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &[data-line-top="true"] {
+      .dummy {
+        &:before,
+        &:after {
+          @include box-display;
+          background-color: $black-900;
+          content: '';
+          position: absolute;
+        }
+
+        &:before {
+          height: calc(100% + 2px);
+          left: -10px;
+          height: calc(100% - 2px) !important;
+          top: -2px !important;
+          width: 2px;
+        }
+
+        &:after {
+          height: 2px;
+          left: -3px;
+          top: -4px;
+          width: 100%;
+        }
+      }
+    }
+
+    &:nth-last-child(2) {
+      &[data-weekend="true"] {
+        &.disabled {
+          .dummy {
+            &:before {
+              display: none !important;
+            }
+          }
+
+          & + .calendar--day {
+            .dummy {
+              &:before {
+                display: inline-block !important;
+              }
+            }
+
+            &.disabled {
+              .dummy {
+                &:before {
+                  display: none !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &:last-child {
+      &:after {
+        width: calc(100% + 1px);
+      }
+    }
+
+    &:after,
+    &:before {
+      @include box-display;
+      left: 0;
+      position: absolute;
+      top: -10px;
+    }
+
+    &:before {
+      background-color: rgba($black-900, .03);
+      content: '';
+      height: calc(100% + 3px);
+      opacity: 0;
+      transition: all 550ms cubic-bezier(0.075, 0.82, 0.165, 1);
+      width: 100%;
+      z-index: 1;
+    }
+  }
+}
+
+/* --- QUERIES --- */
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+  .calendar {
+    &--day {
+      display: none;
+
+      .day {
+        @include rem('font-size', 24px);
+      }
+
+      .events {
+        &--item {
+          display: inline-block;
+
+          .event {
+            padding: 10px 5px;
+
+            .description {
+              display: inline-block;
+            }
+
+            .address,
+            .description {
+              @include rem('font-size', 13px);
+            }
+
+            .name {
+              @include rem('font-size', 16px);
+            }
+          }
+        }
+      }
+
+      .more {
+        display: none;
+      }
+
+      &.active {
+        display: inline-block;
+        width: 100%;
+      }
+
+      &[data-today="true"] {
+        display: inline-block;
+        width: 100%;
+
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}

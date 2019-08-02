@@ -1,0 +1,132 @@
+/* --- BUTTONS --- */
+@import "../../settings/settings";
+@import "../../tools/mixins";
+
+%btn-clear {
+  @include box-display;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+%btn-more {
+  @extend %btn-clear;
+  @include font($font-default, 12px, 500, $black-900);
+  background-color: transparent;
+  border: none;
+  border-bottom: 9px solid $black-900;
+  cursor: pointer;
+  letter-spacing: -0.025em;
+  margin: 0;
+  padding: 10px 15px;
+  text-decoration: none;
+
+  &:before {
+    @include box-display;
+    background-color: $black-900;
+    bottom: -5px;
+    content: '';
+    height: 1px;
+    left: -30px;
+    position: absolute;
+    width: 30px;
+  }
+}
+
+%btn-line {
+  @extend %btn-clear;
+  @include font($font-default, 14px, 400, var(--text-color));
+  background-color: transparent;
+  letter-spacing: 0.01em;
+  line-height: 1em;
+  padding: 7px 30px;
+  position: relative;
+  text-transform: uppercase;
+
+  &.next {
+    &:before {
+      animation: btn-line-width 350ms cubic-bezier(0.165, 0.84, 0.44, 1) 450ms forwards;
+      left: 100%;
+    }
+    
+    &:after {
+      animation: btn-line-background-next 250ms cubic-bezier(0.165, 0.84, 0.44, 1) 100ms forwards;
+      left: 100%;
+      transform-origin: right;
+    }
+  }
+
+  &.prev {
+    &:before {
+      animation: btn-line-width 350ms cubic-bezier(0.165, 0.84, 0.44, 1) 450ms forwards;
+      left: initial;
+      right: 100%;
+    }
+    
+    &:after {
+      animation: btn-line-background-prev 250ms cubic-bezier(0.165, 0.84, 0.44, 1) 100ms forwards;
+      right: 100%;
+      transform-origin: left;
+    }
+  }
+
+  &:after,
+  &:before {
+    @include box-display;
+    background-color: $black-900;
+    content: '';
+    position: absolute;
+  }
+
+  &:before {
+    height: 1px;
+    top: calc(50% - 1px);
+    width: 0;
+    z-index: 2;
+  }
+
+  &:after {
+    height: 100%;
+    top: 0;
+    width: 0%;
+    z-index: -1;
+  }
+}
+
+/* --- ANIMATION --- */
+// NEXT
+@keyframes btn-line-background-next {
+  0% {
+    left: 100%;
+    transform: scaleX(0);
+    width: 0;
+  }
+  100% {
+    left: 0;
+    transform: scaleX(1);
+    width: 100%;
+  }
+}
+
+// PREV
+@keyframes btn-line-background-prev {
+  0% {
+    right: 100%;
+    transform: scaleX(0);
+    width: 0;
+  }
+  100% {
+    right: 0;
+    transform: scaleX(1);
+    width: 100%;
+  }
+}
+
+@keyframes btn-line-width {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: calc((100vw - #{$page-width}) / 2);
+  }
+}

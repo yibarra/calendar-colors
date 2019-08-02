@@ -1,0 +1,28 @@
+/* --- CALENDAR --- */
+@import './../../styles/settings/settings';
+@import './../../styles/tools/mixins';
+
+.calendar {
+  @include box-display;
+  height: auto;
+  max-width: $page-width;
+  padding: 0;
+  position: relative;
+  text-align: left;
+  width: 100%;
+  z-index: 100;
+
+  &--body,
+  &--month,
+  &--week {
+    @include box-display;
+    float: left;
+    position: relative;
+    width: 100%;
+  }
+  
+  &--month {
+    top: 11px;
+    width: calc(100% - 150px);
+  }
+}

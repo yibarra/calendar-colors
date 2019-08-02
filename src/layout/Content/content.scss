@@ -1,0 +1,16 @@
+/* --- CONTENT --- */
+@import './../../styles/settings/settings';
+@import './../../styles/tools/mixins';
+
+.content {
+  @include box-display;
+  background-color: var(--background-color);
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 70px 0 0;
+  position: relative;
+  text-align: center;
+  transition: background-color 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  width: 100%;
+  vertical-align: top;
+}

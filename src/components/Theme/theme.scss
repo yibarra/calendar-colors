@@ -1,0 +1,14 @@
+/* --- THEME --- */
+@import './../../styles/settings/settings';
+@import './../../styles/tools/mixins';
+
+.theme {
+  --background-color: #{$blue-900};
+  --text-color: #{$blue-900};
+
+  @include box-display;
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+  vertical-align: top;
+}

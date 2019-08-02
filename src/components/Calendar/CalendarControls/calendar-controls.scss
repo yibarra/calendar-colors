@@ -1,0 +1,73 @@
+/* --- CALENDAR CONTROLS --- */
+@import './../../../styles/settings/settings';
+@import './../../../styles/tools/mixins';
+
+@import './../../../styles/components/forms/buttons';
+
+.calendar {
+  &--controls {
+    @include box-display;
+    float: left;
+    padding: 5px 0 0;
+    position: relative;
+    width: 150px;
+
+    &--content {
+      @include box-display;
+      border: none;
+      float: left;
+      margin: 0;
+      padding: 20px 0;
+      position: relative;
+      width: 100%;
+
+      .btn {
+        @extend %btn-line;
+        margin: 0 0 2px 0;
+      }
+    }
+  }
+}
+
+/* --- QUERIES --- */
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .calendar {
+    &--controls {
+      padding: 15px 0 30px;
+      width: 100%;
+
+      &--content {
+        float: right;
+        margin: 0;
+        padding: 0;
+        width: auto;
+      }
+    }
+
+    &--info {
+      .month {
+        @include rem('font-size', 32px);
+        display: inline-block;
+        margin: 0 10px 0 0;
+      }
+  
+      .year {
+        @include rem('font-size', 20px);
+      }
+    }
+  }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+  .calendar {
+    &--controls {
+      &--content {
+        .btn {
+          display: none;
+        }
+      }
+    }
+  }
+}

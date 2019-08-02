@@ -1,0 +1,84 @@
+/* --- CALENDAR DAYS --- */
+@import './../../../styles/settings/settings';
+@import './../../../styles/tools/mixins';
+
+.calendar {
+  &--days {
+    @include box-display;
+    background-color: $black-900;
+    float: right;
+    margin: 0;
+    text-align: right;
+    width: calc(100% - 150px);
+
+    .day {
+      @include box-display;
+      @include font($font-default, 14px, 700, var(--text-color));
+      padding: 7px 5px;
+      letter-spacing: -0.05em;
+      position: relative;
+      text-align: left;
+      text-transform: uppercase;
+      width: calc(100% / 7);
+
+      &:first-child {
+        &:before {
+          @include box-display;
+          background-color: $black-900;
+          content: '';
+          height: 100%;
+          left: -20px;
+          position: absolute;
+          top: 0;
+          width: 20px;
+        }
+      }
+    }
+  }
+
+  &--header {
+    &--days {
+      @include box-display;
+      border: none;
+      border-bottom: 1px solid $black-900;
+      float: left;
+      position: relative;
+      width: 100%;
+    }
+  }
+}
+
+/* --- QUERIES --- */
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .calendar {
+    &--days {
+      width: 100%;
+
+      .day {
+        text-align: center;
+
+        &:first-child {
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+  .calendar {
+    &--days {
+      display: none;
+    }
+
+    &--header {
+      &--days {
+        border: none;
+      }
+    }
+  }
+}

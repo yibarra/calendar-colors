@@ -1,0 +1,28 @@
+/* --- CALENDAR EVENTS --- */
+@import './../../../styles/settings/settings';
+@import './../../../styles/tools/mixins';
+
+.calendar {
+  &--event,
+  &--events {
+    @include box-display;
+    float: left;
+    position: relative;
+    width: 100%;
+  }
+
+  &--event {
+    .more {
+      @include box-display;
+      bottom: -5px;
+      color: $black-900;
+      right: 5px;
+      position: absolute;
+      
+      .material-icons {
+        @include rem('font-size', 16px);
+        @include box-display;
+      }
+    }
+  }
+}

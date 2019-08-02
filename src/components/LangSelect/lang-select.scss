@@ -1,0 +1,71 @@
+/* --- LANG --- */
+@import './../../styles/settings/settings';
+@import './../../styles/tools/mixins';
+
+@import './../../styles/components/forms/buttons';
+
+.lang-select {
+  @include box-display;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  position: relative;
+
+  &--icon,
+  &--item,
+  &--list {
+    @include box-display;
+    position: relative;
+  }
+
+  &--icon {
+    height: 17px;
+    line-height: 1em;
+    margin: 0 20px 0 0;
+
+    i {
+      @include rem('font-size', 17px);
+      color: $black-900;
+    }
+  }
+
+  &--list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &--item {
+    @include box-display;
+    float: left;
+    margin: 0 8px;
+    position: relative;
+
+    .lang {
+      @include font($font-default, 11px, 500, $black-900);
+      @extend %btn-clear;
+      line-height: 1em;
+      padding: 0 2px 5px;
+      text-align: center;
+      text-transform: uppercase;
+
+      &:before {
+        @include box-display;
+        background-color: $black-900;
+        bottom: 0;
+        content: '';
+        height: 2px;
+        left: 0;
+        position: absolute;
+        transition: width 400ms cubic-bezier(0.075, 0.82, 0.165, 1);
+        width: 0;
+      }
+
+      &[data-active="true"] {
+        &:before {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

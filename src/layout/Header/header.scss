@@ -1,0 +1,15 @@
+/* --- HEADER --- */
+@import './../../styles/settings/settings';
+@import './../../styles/tools/mixins';
+
+.header {
+  @include box-display;
+  float: left;
+  left: 0;
+  padding: 10px 15px;
+  position: fixed;
+  text-align: right;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+}

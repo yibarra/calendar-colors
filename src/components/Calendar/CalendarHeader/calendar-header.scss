@@ -1,0 +1,87 @@
+/* --- CALENDAR HEADER --- */
+@import './../../../styles/settings/settings';
+@import './../../../styles/tools/mixins';
+
+@import './../../../styles/components/forms/buttons';
+
+.calendar--header {
+  @include box-display;
+  padding: 0 0 30px;
+  position: relative;
+  width: 100%;
+
+  &--content {
+    @include box-display;
+    position: relative;
+    width: 100%;
+
+    .btn-line {
+      @extend %btn-line;
+      vertical-align: top;
+      z-index: 10;
+
+      &.next {
+        float: right;
+      }
+
+      &.prev {
+        float: left;
+      }
+
+      &[data-remove="true"] {
+        display: none;
+      }
+    }
+  }
+
+  &--info {
+    @include box-display;
+    margin: 0;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, 0);
+    text-align: center;
+    top: -10px;
+    vertical-align: top;
+
+    .month,
+    .year {
+      @include box-display;
+      letter-spacing: -0.05em;
+      position: relative;
+    }
+
+    .month {
+      @include font($font-default, 26px, 400, $black-900);
+      display: block;
+      line-height: 1em;
+    }
+
+    .year {
+      @include font($font-default, 14px, 400, $black-900);
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, 0);
+      top: 27px;
+    }
+  }
+}
+
+/* --- QUERIES --- */
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 1024px) {
+  .calendar {
+    &--header {
+      padding: 0 0 15px;
+    }
+  }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+  .calendar {
+    &--header {
+      display: none;
+    }
+  }
+}

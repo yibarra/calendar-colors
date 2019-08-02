@@ -1,0 +1,46 @@
+/* --- GRID --- */
+@import './../tools/mixins';
+
+$page-width: 1064px;
+
+body {
+  @include scrollV(6px, var(--background-color), $black-900);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  @include box-display;
+  float: left;
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+  vertical-align: top;
+}
+
+.wrapper {
+  @include box-display;
+  min-height: 100%;
+  margin: 0;
+  max-width: $page-width;
+  width: 100%;
+  vertical-align: top;
+}
+
+/* --- QUERIES --- */
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .page {
+    align-content: center;
+    align-items: center;
+    display: inline-flex !important;
+    justify-content: center;
+    justify-items: center;
+    flex-flow: column wrap;
+  }
+}
