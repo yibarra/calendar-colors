@@ -1,0 +1,35 @@
+/* --- SLIDER --- */
+@import '../../styles/settings/settings';
+@import '../../styles/tools/mixins';
+
+.slider {
+  @include box-display;
+  float: left;
+  position: relative;
+
+  &--controls {
+    z-index: 9;
+  }
+
+  &--container {
+    @include box-display;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    float: left;
+    flex-flow: row nowrap;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+
+  &--item {
+    @include box-display;
+    display: none;
+    position: relative;
+
+    &[data-active="true"] {
+      display: inline-block;
+    }
+  }
+}

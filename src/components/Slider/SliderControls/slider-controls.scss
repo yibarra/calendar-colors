@@ -1,0 +1,89 @@
+/* --- SLIDER CONTROLS --- */
+@import './../../../styles/settings/settings';
+@import './../../../styles/tools/mixins';
+
+@import './../../../styles/components/forms/buttons';
+
+.slider--controls {
+  @include box-display;
+  position: relative;
+  width: 100%;
+
+  &[data-type="1"] {
+    list-style: none;
+    margin: 0;
+    padding: 20px 0 0;
+
+    .slider-controls {
+      &--item {
+        @include box-display;
+        float: left;
+        padding: 0;
+        position: relative;
+        top: 0;
+        width: 100%;
+
+        .control {
+          @include box-display;
+          position: relative;
+        
+          .date {
+            @include box-display;
+            display: block;
+            padding: 0;
+
+            .day,
+            .month {
+              @include box-display;
+              float: left;
+              letter-spacing: -0.025em;
+              line-height: 1em;
+              position: relative;
+              width: 100%;
+            }
+
+            .day {
+              @include font($font-default, 24px, 400, $black-900);
+              margin: 0;
+            }
+
+            .month {
+              @include font($font-default, 13px, 600, $black-900);
+              margin: 0 0 15px;
+              text-transform: uppercase;
+            }
+
+            &[data-disable="true"] {
+              display: none;
+            }
+          }
+
+          .btn {
+            @extend %btn-line;
+            position: relative;
+
+            &.next {
+              float: right;
+            }
+
+            &.prev {
+              float: left;
+            }
+          }
+
+          &.next {
+            float: right;
+          }
+
+          &.prev {
+            float: left;
+          }
+          
+          &[data-disable="true"] {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

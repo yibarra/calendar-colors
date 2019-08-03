@@ -20,6 +20,11 @@
       vertical-align: top;
       z-index: 10;
 
+      &:before,
+      &:after {
+        pointer-events: none;
+      }
+
       &.next {
         float: right;
       }
@@ -73,6 +78,38 @@
   .calendar {
     &--header {
       padding: 0 0 15px;
+
+      &--content {
+        .btn-line {
+          &.next,
+          &.prev {
+            &:before {
+              animation: none;
+              width: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .calendar {
+    &--header {
+      &--days {
+        &:before {
+          @include box-display;
+          background-color: $black-900;
+          bottom: -1px;
+          content: '';
+          height: 1px;
+          left: -20px;
+          position: absolute;
+          width: calc(100% + 40px);
+        }
+      }
     }
   }
 }
@@ -81,7 +118,9 @@
 @media only screen and (max-width : 480px) {
   .calendar {
     &--header {
-      display: none;
+      &--days {
+        display: none;
+      }
     }
   }
 }

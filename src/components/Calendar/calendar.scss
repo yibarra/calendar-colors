@@ -2,6 +2,10 @@
 @import './../../styles/settings/settings';
 @import './../../styles/tools/mixins';
 
+@import './../../styles/components/animations';
+
+$day-animation-duration: 25;
+
 .calendar {
   @include box-display;
   height: auto;
@@ -22,7 +26,55 @@
   }
   
   &--month {
-    top: 11px;
+    top: 1px;
     width: calc(100% - 150px);
+  }
+
+  &--body {
+    @include box-display;
+    animation: fade-in-bottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 400ms both;
+    padding: 10px 0 0;
+    position: relative;
+    width: 100%;
+  }
+
+  &--day {
+    @for $i from 1 through 35 {
+      &:nth-child(#{$i}) {
+        animation: fade-in-bottom-o 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) #{$i * $day-animation-duration}ms both;    
+      }
+    }
+  }
+
+  &--header {
+    &--days {
+      animation: fade-in-bottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 350ms both;
+    }
+  }
+}
+
+/* --- QUERIES --- */
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 1024px) {
+  .calendar {
+    padding: 0 20px;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .calendar {
+    &--month {
+      width: 100%;
+    }
+  }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+  .calendar {
+    &--body {
+      padding: 0;
+    }
   }
 }

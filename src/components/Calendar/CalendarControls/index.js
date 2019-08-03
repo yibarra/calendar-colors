@@ -12,20 +12,31 @@ import './calendar-controls.scss';
  * @param {*} props 
  */
 const CalendarControls = props => {
+  // now
+  const now = dateFns.parse(new Date());
+
   // translate
   const { t } = useTranslation();
 
+  // disabled today
+  const disableButton = () => {
+    return (now.getMonth() + 1) === parseInt(dateFns.format(props.currentMonth, 'MM'));
+  }
+
   // on today
   const onToday = () => {
-    props.setCurrentMonth(dateFns.parse(new Date(Date.now())));
-    props.onDateClick(dateFns.parse(new Date(Date.now())));
+    props.setCurrentMonth(now);
+    props.onDateClick(now);
   };
   
   // return
   return (
     <div className="calendar--controls">
       <div className="calendar--controls--content">
-        <button className="btn prev" onClick={() => onToday()}>{t('today')}</button>
+        <button
+          className="btn prev"
+          onClick={() => onToday()}
+          data-disabled={disableButton()}>{t('today')}</button>
       </div>
     </div>
   )

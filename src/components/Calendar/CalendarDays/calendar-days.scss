@@ -44,6 +44,17 @@
       float: left;
       position: relative;
       width: 100%;
+
+      &:after {
+        @include box-display;
+        background-color: $black-900;
+        content: '';
+        height: calc(100% + 1px);
+        right: -1px;
+        position: absolute;
+        top: 0;
+        width: 1px;
+      }
     }
   }
 }

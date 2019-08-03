@@ -1,0 +1,92 @@
+/* --- EVENTS --- */
+@import './../../styles/settings/settings';
+@import './../../styles/tools/mixins';
+
+@import './../../styles/components/forms/buttons';
+
+.view-type {
+  @include box-display;
+  left: 20px;
+  margin: 0 0 10px;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  top: 10px;
+  width: auto;
+  z-index: 3;
+
+  .btn {
+    @extend %btn-clear;
+    margin: 0 2px;
+    line-height: 1em;
+    padding: 5px;
+    position: relative;
+    vertical-align: top;
+    
+    i {
+      @include box-display;
+      @include rem('font-size', 18px);
+      position: relative;
+      vertical-align: top;
+    }
+
+    &:last-child {
+      i {
+        top: 1px;
+      }
+    }
+    
+    &:before {
+      @include box-display;
+      border: none;
+      border-bottom: 1px solid rgba($black-900, 0);
+      bottom: 0;
+      content: '';
+      left: 50%;
+      height: 1px;
+      position: absolute;
+      transition: all 450ms cubic-bezier(0.075, 0.82, 0.165, 1);
+      transform: translateX(-50%);
+      width: 0;
+    }
+
+    &:disabled {
+      opacity: 0.7;
+    }
+
+    &:hover {
+      &:before {
+        border-bottom-color: rgba($black-900, 0.4);
+        width: 80%;
+      }
+    }
+
+    &[data-active="true"] {
+      &:before {
+        border-bottom-color: $black-900;
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* --- QUERIES --- */
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .events {
+    &--header {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+  .events {
+    &--header {
+      position: relative;
+      top: 0;
+    }
+  }
+}

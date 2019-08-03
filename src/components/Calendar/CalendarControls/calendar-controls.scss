@@ -24,12 +24,32 @@
       .btn {
         @extend %btn-line;
         margin: 0 0 2px 0;
+
+        &[data-disabled="true"] {
+          display: none;
+        }
       }
     }
   }
 }
 
 /* --- QUERIES --- */
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 1024px) {
+  .calendar {
+    &--controls {
+      &--content {
+        .btn.prev {
+          &:before {
+            animation: none;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
   .calendar {
@@ -42,6 +62,14 @@
         margin: 0;
         padding: 0;
         width: auto;
+
+        .btn.prev {
+          &:before {
+            left: initial;
+            right: -20px;
+            width: 20px;
+          }
+        }
       }
     }
 

@@ -79,12 +79,48 @@
     }
 
     &[data-today="true"] {
+      &[data-weekend="true"] {
+        .day {
+          .number {
+            color: $black-900 !important;
+          }
+        }
+
+        .calendar--event {
+          .events {
+            &--item {
+              .event {
+                .address,
+                .description,
+                .hour,
+                .name {
+                  &:before {
+                    color: $black-900 !important;
+                  }
+                }
+              }
+            }
+          }
+
+          .more {
+            i {
+              color: $black-900 !important;
+            }
+          }
+        }
+
+        &:after {
+          background-color: rgba($white-900, 0.25);
+          left: 0px !important;
+        }
+      }
+
       &:after {
-        border: 1px solid $black-900;
+        border: 2px solid $black-900;
         content: '';
-        height: calc(100% + 1px);
+        height: calc(100% + 2px);
         left: 2px;
-        top: -9px;
+        top: -10px;
         width: calc(100% - 3px);
       }
     }
