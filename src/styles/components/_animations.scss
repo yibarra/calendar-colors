@@ -4,14 +4,14 @@
 
 @keyframes event-next {
   0% {
-    left: 650px;
-    transform: scale(0.9);
+    left: 100%;
     opacity: 0.7;
+    transform: scale(0.9);
   }
   100% {
     left: 0;
-    transform: scale(1);
     opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -22,8 +22,8 @@
     opacity: 0;
   }
   100% {
-    left: 650px;
-    transform: scale(0.9);
+    left: 590px;
+    transform: scale(0.7);
     opacity: 0.7;
   }
 }
@@ -31,13 +31,13 @@
 @keyframes event-prev {
   0% {
     left: -100%;
-    transform: scale(0.9);
     opacity: 0.7;
+    transform: scale(0.7);
   }
   100% {
     left: 0;
-    transform: scale(1);
     opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -48,8 +48,8 @@
     opacity: 0;
   }
   100% {
-    left: 650px;
-    transform: scale(0.9);
+    left: 590px;
+    transform: scale(0.7);
     opacity: 0.7;
   }
 }

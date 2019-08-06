@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { useTranslation } from 'react-i18next';
+
 import './event-attributes.scss';
 
 /**
@@ -9,11 +11,14 @@ import './event-attributes.scss';
  * @param {*} props 
  */
 const EventAttributes = props => {
+  // translate
+  const { t } = useTranslation();
+
   // return
   return (
     <ul className="attributes">
       <li className="attributes--item">
-        <span className="label">Hora</span>
+        <span className="label">{t('hour')}</span>
         <span className="value">{props.formatHour(props.item.date)}</span>
       </li>
 

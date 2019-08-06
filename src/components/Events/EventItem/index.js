@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import dateFns from "date-fns";
+import { useTranslation } from 'react-i18next';
 
 import EventInfo from '../EventInfo';
 
@@ -13,9 +14,18 @@ import './event-item.scss';
  * @param {*} props 
  */
 const EvenItem = props => {
+  // translate
+  const { t } = useTranslation();
+
   // forma title
-  const formatTitle = (date) => {
-    return dateFns.format(date, 'D - MMMM');
+  const formatTitle = date => {
+    const day = dateFns.format(date, 'D');
+    const month = dateFns.format(date, 'MMM');
+
+    return <Fragment>
+      <span className="day">{day}</span>
+      <span className="month">{t(month)}</span>
+    </Fragment>;
   };
 
   // format hour

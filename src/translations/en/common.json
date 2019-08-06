@@ -25,5 +25,17 @@
   "Fr": "Fri",
   "Sa": "Sat",
   "prev": "Prev",
-  "next": "Next"
+  "next": "Next",
+  "hour": "hour",
+  "Jan": "Jan",
+  "Feb": "Feb",
+  "Mar": "Mar",
+  "Apr": "Apr", 
+  "Jun": "jun",
+  "Jul": "jul",
+  "Aug": "aug",
+  "Sep": "sep",
+  "Oct": "Oct",
+  "Nov": "nov",
+  "Dec": "Dec"
 }

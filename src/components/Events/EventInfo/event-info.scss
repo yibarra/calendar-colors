@@ -6,54 +6,192 @@
   &--item {
     &--info {
       @include box-display;
-      padding: 30px;
+      background-color: transparent;
+      padding: 0 0 20px 0;
       position: relative;
       text-align: left;
-      vertical-align: top;
       width: calc(100% - 240px);
 
+      .country,
       .description,
       .title {
         @include box-display;
         margin: 0;
         position: relative;
+
+        &:empty {
+          display: none;
+        }
+      }
+
+      .country {
+        bottom: 0;
+        left: -240px;
+        padding: 15px;
+        position: absolute;
+        text-align: left;
+        width: 100%;
+        z-index: 2;
+
+        .material-icons,
+        .text {
+          @include box-display;
+          float: left;
+          position: relative;
+        }
+
+        .material-icons {
+          @include rem('font-size', 13px);
+          color: $white-900;
+          margin: 0 5px 0 0;
+        }
+
+        .text {
+          @include font($font-default, 13px, 400, $white-900);
+          letter-spacing: -0.025em;
+          line-height: 1em;
+        }
       }
 
       .description {
         @include font($font-default, 12px, 400, $black-900);
         line-height: 1.6em;
-        padding: 0 15px;
+        left: 7px;
+        letter-spacing: -0.025em;
+        padding: 20px 30px 0 20px;
+        width: calc(100% - 16px);
       }
 
       .title {
+        background-color: $black-900;
+        border: 1px solid $black-900;
+        float: left;
+        margin: 16px 0 0;
+        padding: 30px 20px 20px;
+        top: -10px;
+        width: calc(100% + 57px);
+        z-index: 90;
+
         .address,
         .date,
         .name {
           @include box-display;
+          display: table;
           margin: 0;
           line-height: 1em;
-          float: left;
+          float: none;
           position: relative;
+          width: auto;
         }
 
         .address {
-          @include font($font-default, 14px, 400, $black-900);
+          @include font($font-default, 13px, 400, var(--background-color));
           letter-spacing: -0.025em;
+          width: calc(100% - 45px);
+
+          &:after {
+            background-color: $black-900 !important;
+          }
         }
 
         .date {
-          @include font($font-default, 18px, 600, $black-900);
-          margin: 0 0 15px;
-          text-transform: uppercase;
+          @include font($font-default, 24px, 400, $black-900);
+          background-color: var(--background-color);
+          align-content: center;
+          display: inline-flex;
+          justify-content: center;
+          flex-flow: row wrap;
+          right: 1px;
           letter-spacing: -0.025em;
+          margin: 0;
+          height: calc(100% - 2px);
+          position: absolute;
+          text-transform: uppercase;
+          top: 1px;
+          width: 55px;
+          z-index: 2;
+
+          span {
+            @include box-display;
+            letter-spacing: -0.034em;
+            margin: 0;
+            height: auto;
+            float: left;
+            letter-spacing: -0.05em;
+            padding: 0;
+            position: relative;
+            text-align: center;
+            width: 100%;
+            
+            &.month {
+              @include rem('font-size', 13px);
+              border: none;
+              font-weight: 600;
+              text-transform: uppercase;
+              width: 100%;
+            }
+          }
+
+          &:after {
+            @include box-display;
+            bottom: -2px;
+            content: '';
+            left: 0;
+            height: 1px;
+            position: absolute;
+            width: 100%;
+          }
         }
 
         .name {
-          @include font($font-default, 23px, 400, $black-900);
+          @include font($font-default, 23px, 400, var(--background-color));
           letter-spacing: -0.05em;
-          margin: 0 0 10px;
-          width: 100%;
+          margin: 0 0 5px;
+          width: calc(100% - 45px);
+
+          &:after {
+            background-color: $black-900 !important;
+          }
         }
+
+        &:before {
+          @include box-display;
+          background-color: var(--background-color);
+          content: '';
+          height: calc(100% + 4px);
+          left: -1px;
+          position: absolute;
+          top: -2px;
+          transform-origin: right center;
+          width: calc(100% + 4px);
+          z-index: 100;
+        }
+      }
+
+      &:before,
+      &:after {
+        @include box-display;
+        content: '';
+        position: absolute;
+        pointer-events: none;
+      }
+
+      &:before {
+        border: 0px solid $black-900;
+        border-left: none;
+        left: 0;
+        height: calc(100% - 12px);
+        transition: all 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
+        top: 6px;
+        width: calc(100% - 2px);
+      }
+
+      &:after {
+        background-color: $black-900;
+        height: 1px;
+        left: 100%;
+        top: 50px;
+        width: 50vw;
       }
     }
   }

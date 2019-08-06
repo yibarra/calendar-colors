@@ -22,8 +22,14 @@
     }
 
     &--image {
+      align-content: center;
+      align-items: center;
+      display: inline-flex;
+      flex-flow: row nowrap;
+      justify-content: center;
       overflow: hidden;
       width: 240px;
+      z-index: 99;
 
       img {
         @include box-display;
@@ -34,88 +40,7 @@
     }
 
     &--info {
-      @include box-display;
-      padding: 30px 15px;
-      position: relative;
-      text-align: left;
       width: calc(100% - 240px);
-
-      .country,
-      .description,
-      .title {
-        @include box-display;
-        margin: 0;
-        position: relative;
-
-        &:empty {
-          display: none;
-        }
-      }
-
-      .country {
-        bottom: 0;
-        left: -240px;
-        padding: 15px;
-        position: absolute;
-        text-align: left;
-        width: 100%;
-
-        .material-icons,
-        .text {
-          @include box-display;
-          float: left;
-          position: relative;
-        }
-
-        .material-icons {
-          @include rem('font-size', 13px);
-          color: $white-900;
-          margin: 0 5px 0 0;
-        }
-
-        .text {
-          @include font($font-default, 13px, 400, $white-900);
-          letter-spacing: -0.025em;
-          line-height: 1em;
-        }
-      }
-
-      .description {
-        @include font($font-default, 12px, 400, $black-900);
-        line-height: 1.6em;
-        padding: 0 15px;
-      }
-
-      .title {
-        .address,
-        .date,
-        .name {
-          @include box-display;
-          margin: 0;
-          line-height: 1em;
-          float: left;
-          position: relative;
-        }
-
-        .address {
-          @include font($font-default, 14px, 400, $black-900);
-          letter-spacing: -0.025em;
-        }
-
-        .date {
-          @include font($font-default, 18px, 600, $black-900);
-          margin: 0 0 15px;
-          text-transform: uppercase;
-          letter-spacing: -0.025em;
-        }
-
-        .name {
-          @include font($font-default, 23px, 400, $black-900);
-          letter-spacing: -0.05em;
-          margin: 0 0 5px;
-          width: 100%;
-        }
-      }
     }
   }
 }

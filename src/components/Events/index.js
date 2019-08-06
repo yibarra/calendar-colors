@@ -39,9 +39,10 @@ const Events = (props) => {
 
   // effect
   useEffect(() => {
-    if (Array.isArray(calendarContext.currentDateItems) === false) return false;
+    if (Array.isArray(mainContext.items) === false) return false;
 
-    const item = calendarContext.currentDateItems.filter(item => dateFns.isEqual(item.date, calendarContext.currentDate))[0];
+    const item = mainContext.items.filter(item => 
+      dateFns.isEqual(item.date, calendarContext.currentDate))[0];
 
     if (item instanceof Object) {
       currentInit(item);

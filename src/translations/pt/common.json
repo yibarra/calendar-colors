@@ -25,5 +25,17 @@
   "Fr": "SEX",
   "Sa": "SAB",
   "prev": "Ant",
-  "next": "Pro"
+  "next": "Pro",
+  "hour": "hora",
+  "Jan": "Jan",
+  "Feb": "fev",
+  "Mar": "Mar",
+  "Apr": "abr", 
+  "Jun": "jun",
+  "Jul": "jul",
+  "Aug": "ago",
+  "Sept": "set",
+  "Oct": "out",
+  "Nov": "nov",
+  "Dec": "dez"
 }

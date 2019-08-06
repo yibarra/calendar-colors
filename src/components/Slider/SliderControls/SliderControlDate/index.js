@@ -20,7 +20,7 @@ const SliderControlDate = props => {
     if (item instanceof Object) {
       return <Fragment>
           <span className="day">{dateFns.format(item.date, 'D')}</span>
-          <span className="month">{dateFns.format(item.date, 'MMM')}</span>
+          <span className="month">{t(dateFns.format(item.date, 'MMM'))}</span>
         </Fragment>;
     }
   };

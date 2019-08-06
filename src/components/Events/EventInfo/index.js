@@ -14,10 +14,10 @@ const EvenInfo = props => {
   // return
   return (
     <div className="event--item--info">
-      <p className="country">
+      {props.item.country && <p className="country">
         <i className="material-icons">location_on</i>
         <span className="text">{props.item.country}</span>
-      </p>
+      </p>}
 
       <p className="title">
         <span className="date">{props.formatTitle(props.item.date)}</span>

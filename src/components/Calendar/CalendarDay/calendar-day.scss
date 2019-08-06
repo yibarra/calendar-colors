@@ -81,6 +81,8 @@
     &[data-today="true"] {
       &[data-weekend="true"] {
         .day {
+          border-bottom-color: $black-900;
+          
           .number {
             color: $black-900 !important;
           }
