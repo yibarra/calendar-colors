@@ -14,3 +14,28 @@
   width: 100%;
   vertical-align: top;
 }
+
+/* --- QUERIES --- */
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 1024px) {
+  .content {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .content {
+    display: inline-block;
+    padding: 100px 0 0;
+  }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+  .content {
+    padding: 70px 0 0;
+  }
+}

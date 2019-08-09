@@ -46,19 +46,82 @@
 }
 
 /* --- QUERIES --- */
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .event {
+    &--item {
+      &--info {
+        .title {
+          .date {
+            border: 2px solid $black-900;
+            right: 0;
+            top: calc((100% + 4px) * -1);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 640px) {
+  .event {
+    &--item {
+      height: auto;
+      padding: 90px 0 0;
+
+      &--info {
+        .title {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
 /* Extra Small Devices, Phones */ 
 @media only screen and (max-width : 480px) {
   .event {
     &--item {
+      margin: 0;
+      padding: 0;
+      
+      &--image {
+        align-items: center;
+        display: inline-flex;
+        justify-content: center;
+        max-height: 200px;
+        width: 100%;
+        
+        img {
+          height: auto;
+          width: 100%;
+        }
+      }
+      
       &--info {
-        .attributes {
-          margin: 10px 0 0;
+        padding: 8px 8px 40px;
+        width: 100%;
+
+        .country {
+          left: 0;
+          top: -40px;
         }
 
         .title {
           .date {
-            margin: 0 0 10px;
+            border: none;
+            right: 1px;
+            top: 1px;
           }
+        }
+
+        &:before {
+          border-left: 2px solid $black-900;
+        }
+
+        &:after {
+          display: none;
         }
       }
     }

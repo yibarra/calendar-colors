@@ -1,0 +1,167 @@
+/* --- SELECT --- */
+@import './../../styles/settings/settings';
+@import './../../styles/tools/mixins';
+
+.select {
+  @include box-display;
+  float: left;
+  position: relative;
+
+  &--content,
+  &--component {
+    @include box-display;
+    float: left;
+    position: relative;
+    text-align: left;
+    width: 100%;
+  }
+
+  &--content {
+    background-color: $white-900;
+    border: 1px solid $black-900;
+    border-top: none;
+    display: none;
+    left: 0px;
+    margin: 0;
+    max-height: 132px;
+    overflow: hidden;
+    overflow-y: auto;
+    outline: none;
+    padding: 0;
+    position: absolute;
+    top: calc(100% - 1px);
+    width: 100%;
+    z-index: 0;
+  }
+
+  &--component {
+    height: auto;
+    outline: none;
+
+    &.active {
+      .select--content {
+        display: inline-block;
+        z-index: 9;
+      }
+      
+      .select--selected {
+        z-index: 10;
+
+        .icon {
+          right: 15px;
+          top: calc(50% - 6px);
+          transform: rotate(90deg) translateY(-50%);
+          transform-origin: left top;
+        }
+      }
+
+      &:before {
+        border-bottom: 5px solid $black-900;
+        border-top: none;
+      }
+    }
+
+    select {
+      display: none;
+    }
+  }
+
+  &--item {
+    @include box-display;
+    background-color: $white-900;
+    border: none;
+    border-top: 1px solid $black-900;
+    cursor: pointer;
+    float: left;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+
+    .text {
+      @include box-display;
+      @include font($font-default, 18px, normal, $blue-900);
+      margin: 0;
+      float: left;
+      outline: none;
+      overflow: hidden;
+      padding: 10px 22px 12px;
+      position: relative;
+      text-overflow: ellipsis;
+      width: 100%;
+      white-space: nowrap;
+    }
+
+    &[data-disabled="false"] {
+      display: none;
+
+      & ~ .select--item:nth-child(odd) {
+        background-color: $white-900;
+      }
+      
+      & ~ .select--item:nth-child(even) {
+        background-color: rgba(#009BDB, .1);
+      }
+    }
+
+    &:nth-child(2n+1) {
+      background-color: rgba(#009BDB, .1);
+    }
+  }
+
+  &--selected {
+    @include box-display;
+    background-color: $white-900;
+    border: 1px solid $black-900;
+    cursor: pointer;
+    float: left;
+    height: 47px;
+    line-height: 1em;
+    margin: 0;
+    outline: none;
+    padding: 13px 22px 10px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+
+    .icon,
+    .text {
+      @include box-display;
+      cursor: pointer;
+    }
+
+    .icon {
+      @include rem('font-size', 20px);
+      color: $blue-100;
+      right: 5px;
+      position: absolute;
+      top: calc(50% - 2px);
+      transform: rotate(-90deg) translateY(-50%);
+      transform-origin: left center;
+    }
+
+    .text {
+      @include font($font-default, 18px, normal, $blue-900);
+      float: left;
+      position: relative;
+      text-align: left;
+      top: 0;
+
+      &.label-x {
+        @include font($font-default, 18px, 300, $black-900);
+        left: 23px;
+        position: absolute;
+        top: 14px;
+
+        &[data-active="true"] {
+          @include rem('font-size', 12px);
+          left: 0px;
+          top: -17px;
+        }
+      }
+    }
+  }
+}
+
+/* --- QUERIES --- */

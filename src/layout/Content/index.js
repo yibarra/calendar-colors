@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import CalendarProvider from '../../providers/CalendarProvider';
@@ -29,6 +29,18 @@ const Content = () => {
     themeContext.setThemeColor(color);
   };
 
+  // first mobile
+  const checkView = () => {
+    if (window.innerWidth <= 640) {
+      setTypeView(2);
+    }
+  };
+
+  // user
+  useEffect(() => {
+    checkView();
+  }, [typeView]);
+
   //render
   return (
     <CalendarProvider>
@@ -36,14 +48,16 @@ const Content = () => {
         <div className="content">
           <Header typeView={typeView} onTypeView={setTypeView} />
           
-          {typeView === 2 && <Events />}
+          {typeView === 2 &&
+            <Events
+              items={mainContext.items} />}
 
-          {typeView === 1 && <Calendar
-            items={mainContext.items}
-            onBgColor={onBgColor} 
-            setTypeView={setTypeView}
-            typeView={typeView} />}
-
+          {typeView === 1 &&
+            <Calendar
+              items={mainContext.items}
+              onBgColor={onBgColor} 
+              setTypeView={setTypeView}
+              typeView={typeView} />}
           <Footer />
         </div>
       </ColorProvider>

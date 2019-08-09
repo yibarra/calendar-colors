@@ -30,25 +30,14 @@ const SliderControls = (props) => {
     props.setCurrent(current);
   };
 
-  // type element
-  const typeElement = (type) => {
-    if (Number.isInteger(type) === false) return false;
-
-    switch (type) {
-      case 1:
-      default:
-        return <li className="slider-controls--item" key={1}>
-          <SliderControlDate {...props} type={'prev'} onNextPrev={onNextPrev} getItem={getItem} key={0} />
-          <SliderControlDate {...props} type={'next'} onNextPrev={onNextPrev} getItem={getItem} key={1} />
-        </li>;
-    }
-  };
-
   // return
   return (
-    <ul className="slider--controls" data-type={props.type}>
-      {typeElement(1)}
-    </ul>
+    <div className="slider--controls" data-type={props.type}>
+      <div className="slider--controls--item" key={1}>
+        <SliderControlDate {...props} type={'prev'} onNextPrev={onNextPrev} getItem={getItem} key={0} />
+        <SliderControlDate {...props} type={'next'} onNextPrev={onNextPrev} getItem={getItem} key={1} />
+      </div>
+    </div>
   )
 }
 

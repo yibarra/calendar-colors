@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import dateFns from "date-fns";
 
-import { MainContext } from '../../providers/MainProvider';
 import { CalendarContext } from '../../providers/CalendarProvider';
 import { ColorContext } from '../../providers/ColorProvider';
 
@@ -22,8 +21,6 @@ const Events = (props) => {
   const calendarContext = useContext(CalendarContext);
   // color context
   const colorContext = useContext(ColorContext);
-  // main context
-  const mainContext = useContext(MainContext);
 
   // current
   const [ current, setCurrent ] = useState(0);
@@ -39,13 +36,13 @@ const Events = (props) => {
 
   // effect
   useEffect(() => {
-    if (Array.isArray(mainContext.items) === false) return false;
+    if (props.items instanceof Object) {
+      const item = props.items.filter(item => 
+        dateFns.isEqual(item.date, calendarContext.currentDate))[0];
 
-    const item = mainContext.items.filter(item => 
-      dateFns.isEqual(item.date, calendarContext.currentDate))[0];
-
-    if (item instanceof Object) {
-      currentInit(item);
+      if (item instanceof Object) {
+        currentInit(item);
+      }
     }
   });
 
@@ -69,12 +66,12 @@ const Events = (props) => {
     <div className="event">
       <div className="wrapper">
         <div className="event--content">
-          <Slider current={current} callback={callback} type={1} items={mainContext.items}>
-            {Array.isArray(mainContext.items) &&
-              mainContext.items.map((item, index) =>
-                <EventItem item={item} key={index} />
-              )}
-          </Slider>
+          {Array.isArray(props.items) &&
+            <Slider current={current} callback={callback} type={1} items={props.items}>
+                {props.items.map((item, index) =>
+                  <EventItem item={item} key={index} />
+                )}
+          </Slider>}
         </div>
       </div>
     </div>

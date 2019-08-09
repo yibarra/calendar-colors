@@ -13,3 +13,13 @@
   width: 100%;
   z-index: 99;
 }
+
+/* --- QUERIES --- */
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+  .header {
+    .view-type {
+      display: none;
+    }
+  }
+}

@@ -6,82 +6,94 @@
 
 .slider--controls {
   @include box-display;
+  list-style: none;
+  margin: 0;
   position: relative;
+  padding: 40px 0 0;
   width: 100%;
 
-  &[data-type="1"] {
-    list-style: none;
-    margin: 0;
-    padding: 20px 0 0;
+  &--item {
+    @include box-display;
+    float: left;
+    padding: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
 
-    .slider-controls {
-      &--item {
+    .control {
+      @include box-display;
+      position: relative;
+    
+      .date {
         @include box-display;
-        float: left;
+        display: block;
         padding: 0;
-        position: relative;
-        top: 0;
-        width: 100%;
 
-        .control {
+        .day,
+        .month {
           @include box-display;
+          float: left;
+          letter-spacing: -0.025em;
+          line-height: 1em;
           position: relative;
-        
-          .date {
-            @include box-display;
-            display: block;
-            padding: 0;
+          width: 100%;
+        }
 
-            .day,
-            .month {
-              @include box-display;
-              float: left;
-              letter-spacing: -0.025em;
-              line-height: 1em;
-              position: relative;
-              width: 100%;
-            }
+        .day {
+          @include font($font-default, 24px, 400, $black-900);
+          margin: 0;
+        }
 
-            .day {
-              @include font($font-default, 24px, 400, $black-900);
-              margin: 0;
-            }
+        .month {
+          @include font($font-default, 13px, 600, $black-900);
+          margin: 0 0 15px;
+          text-transform: uppercase;
+        }
 
-            .month {
-              @include font($font-default, 13px, 600, $black-900);
-              margin: 0 0 15px;
-              text-transform: uppercase;
-            }
+        &[data-disable="true"] {
+          display: none;
+        }
+      }
 
-            &[data-disable="true"] {
-              display: none;
-            }
-          }
+      .btn {
+        @extend %btn-line;
+        position: relative;
 
-          .btn {
-            @extend %btn-line;
-            position: relative;
+        &.next {
+          float: right;
+        }
 
-            &.next {
-              float: right;
-            }
+        &.prev {
+          float: left;
+        }
+      }
 
-            &.prev {
-              float: left;
-            }
-          }
+      &.next {
+        float: right;
+      }
 
-          &.next {
-            float: right;
-          }
+      &.prev {
+        float: left;
+      }
+      
+      &[data-disable="true"] {
+        display: none;
+      }
+    }
+  }
+}
 
-          &.prev {
-            float: left;
-          }
-          
-          &[data-disable="true"] {
-            display: none;
-          }
+/* --- QUERIES --- */
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .slider--controls {
+    padding: 40px 20px 0;
+
+    &--item {
+      .btn {
+        &:before {
+          animation: none !important;
+          width: 20px !important;
         }
       }
     }

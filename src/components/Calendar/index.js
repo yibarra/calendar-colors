@@ -14,10 +14,10 @@ import './calendar.scss';
 
 // Calendar
 const Calendar = props => {
-  // color context
-  const colorContext = useContext(ColorContext);
   // calendar context
   const calendarContext = useContext(CalendarContext);
+  // color context
+  const colorContext = useContext(ColorContext);
 
   // on date click
   const onDateClick = day => {
@@ -61,7 +61,7 @@ const Calendar = props => {
 Calendar.propTypes = {
   items: PropTypes.any,
   typeView: PropTypes.number,
-  onType: PropTypes.func,
+  setTypeView: PropTypes.func,
 }
 
 export default Calendar;

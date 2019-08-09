@@ -45,13 +45,25 @@
       position: relative;
       width: 100%;
 
+      &:before,
       &:after {
         @include box-display;
         background-color: $black-900;
         content: '';
+        position: absolute;
+      }
+
+      &:before {
+        height: 1px;
+        right: 50%;
+        top: 100%;
+        width: 100vw;
+        z-index: 2;
+      }
+        
+      &:after {
         height: calc(100% + 1px);
         right: -1px;
-        position: absolute;
         top: 0;
         width: 1px;
       }

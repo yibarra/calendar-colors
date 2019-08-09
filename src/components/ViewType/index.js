@@ -22,7 +22,7 @@ const ViewType = props => {
           className="btn"
           data-active={props.typeView === 1}
           onClick={() => props.onTypeView(1)}>
-            <i className="material-icons">date_range</i>
+            <span>calendario</span>
         </button>
 
         <button
@@ -30,7 +30,7 @@ const ViewType = props => {
           data-active={props.typeView === 2}
           onClick={() => props.onTypeView(2)} 
           disabled={Array.isArray(calendarContext.items) && !calendarContext.items.length}>
-            <i className="material-icons">event</i>
+            <span>lista</span>
         </button>
       </div>
     </div>
