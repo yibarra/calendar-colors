@@ -31,15 +31,31 @@ const Content = () => {
 
   // first mobile
   const checkView = () => {
-    if (window.innerWidth <= 640) {
+    if (getSize().width <= 480) {
       setTypeView(2);
     }
+  };
+
+  // get size
+  const getSize = () => {
+    return {
+      width: document.body.clientWidth || document.documentElement.clientWidth,
+      height: document.documentElement.clientHeight || document.documentElement.clientHeight,
+    };
   };
 
   // user
   useEffect(() => {
     checkView();
-  }, [typeView]);
+
+    function handleResize() {
+      checkView();
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  });
 
   //render
   return (
@@ -50,6 +66,7 @@ const Content = () => {
           
           {typeView === 2 &&
             <Events
+              onBgColor={onBgColor}
               items={mainContext.items} />}
 
           {typeView === 1 &&

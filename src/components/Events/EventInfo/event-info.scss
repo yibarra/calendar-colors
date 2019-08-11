@@ -7,7 +7,7 @@
     &--info {
       @include box-display;
       background-color: transparent;
-      padding: 0 0 20px 0;
+      padding: 0 0 35px 0;
       position: relative;
       text-align: left;
       width: calc(100% - 240px);
@@ -25,8 +25,8 @@
       }
 
       .country {
-        bottom: 0;
-        left: -240px;
+        bottom: -35px;
+        left: 0;
         padding: 15px;
         position: absolute;
         text-align: left;
@@ -42,12 +42,12 @@
 
         .material-icons {
           @include rem('font-size', 13px);
-          color: $white-900;
+          color: $black-900;
           margin: 0 5px 0 0;
         }
 
         .text {
-          @include font($font-default, 13px, 400, $white-900);
+          @include font($font-default, 13px, 400, $black-900);
           letter-spacing: -0.025em;
           line-height: 1em;
         }

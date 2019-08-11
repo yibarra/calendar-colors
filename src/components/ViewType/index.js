@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
+import { useTranslation } from 'react-i18next';
+
 import { CalendarContext } from '../../providers/CalendarProvider';
 
 import './view-type.scss';
@@ -11,6 +13,8 @@ import './view-type.scss';
  * @param {*} props 
  */
 const ViewType = props => {
+  // translate
+  const { t } = useTranslation();
   // calendar context
   const calendarContext = useContext(CalendarContext);
 
@@ -22,7 +26,7 @@ const ViewType = props => {
           className="btn"
           data-active={props.typeView === 1}
           onClick={() => props.onTypeView(1)}>
-            <span>calendario</span>
+            <span>{t('calendar')}</span>
         </button>
 
         <button
@@ -30,7 +34,7 @@ const ViewType = props => {
           data-active={props.typeView === 2}
           onClick={() => props.onTypeView(2)} 
           disabled={Array.isArray(calendarContext.items) && !calendarContext.items.length}>
-            <span>lista</span>
+            <span>{t('list')}</span>
         </button>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import dateFns from "date-fns";
@@ -25,39 +25,23 @@ const Events = (props) => {
   // current
   const [ current, setCurrent ] = useState(0);
 
-  // current init
-  const currentInit = (item) => {
-    const index = calendarContext.currentDateItems.indexOf(item);
-
-    if (current !== index) {
-      setCurrent(index);
-    }
-  };
-
-  // effect
-  useEffect(() => {
-    if (props.items instanceof Object) {
-      const item = props.items.filter(item => 
-        dateFns.isEqual(item.date, calendarContext.currentDate))[0];
-
-      if (item instanceof Object) {
-        currentInit(item);
-      }
-    }
-  });
-
   // callback set current
   const callback = current => {
     if (Number.isInteger(current) === false) return false;
 
-    const item = calendarContext.currentDateItems[current];
-
+    const item = props.items[current];
+    
     if (item instanceof Object) {
-      props.onBgColor(colorContext.newColor());
+      const difference = Math.abs(dateFns.differenceInCalendarMonths(
+        dateFns.parse(item.date), calendarContext.currentDate));
 
-      setCurrent(current);
-      calendarContext.setCurrentDate(dateFns.parse(item.date));
-      calendarContext.selectedDateFresh(dateFns.parse(item.date), calendarContext);
+      if (difference > 0) {
+        props.onBgColor(colorContext.setNewColor());
+        setCurrent(current);
+
+        calendarContext.setCurrentDate(dateFns.parse(item.date));
+        calendarContext.selectedDateFresh(dateFns.parse(item.date), calendarContext);
+      }
     }
   };
 

@@ -37,5 +37,7 @@
   "Sept": "set",
   "Oct": "out",
   "Nov": "nov",
-  "Dec": "dez"
+  "Dec": "dez",
+  "calendar": "Calendario",
+  "list": "Lista"
 }

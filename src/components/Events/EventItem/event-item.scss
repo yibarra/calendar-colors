@@ -5,9 +5,9 @@
 .event {
   &--item {
     @include box-display;
-    align-items: stretch;
+    align-content: center;
+    align-items: flex-start;
     display: inline-flex;
-    justify-content: flex-start;
     flex-flow: row wrap;
     position: relative;
     width: 100%;
@@ -28,6 +28,7 @@
       flex-flow: row nowrap;
       justify-content: center;
       overflow: hidden;
+      padding: 0;
       width: 240px;
       z-index: 99;
 
@@ -40,7 +41,8 @@
     }
 
     &--info {
-      width: calc(100% - 240px);
+      margin: 0 0 0 5px;
+      width: calc(100% - 245px);
     }
   }
 }
@@ -67,9 +69,6 @@
 @media only screen and (max-width : 640px) {
   .event {
     &--item {
-      height: auto;
-      padding: 90px 0 0;
-
       &--info {
         .title {
           width: 100%;
@@ -100,12 +99,12 @@
       }
       
       &--info {
-        padding: 8px 8px 40px;
+        padding: 8px 8px 30px;
         width: 100%;
 
-        .country {
-          left: 0;
-          top: -40px;
+        .attributes,
+        .description {
+          padding: 15px 15px 0 15px;
         }
 
         .title {
