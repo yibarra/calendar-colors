@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/calendar-colors/static/css/main.62dcaf35.chunk.css",
+    "main.css": "/calendar-colors/static/css/main.9cd4f139.chunk.css",
     "main.js": "/calendar-colors/static/js/main.7086c18f.chunk.js",
     "main.js.map": "/calendar-colors/static/js/main.7086c18f.chunk.js.map",
     "runtime~main.js": "/calendar-colors/static/js/runtime~main.288dbf93.js",
@@ -8,8 +8,8 @@
     "static/js/2.2cf407b3.chunk.js": "/calendar-colors/static/js/2.2cf407b3.chunk.js",
     "static/js/2.2cf407b3.chunk.js.map": "/calendar-colors/static/js/2.2cf407b3.chunk.js.map",
     "index.html": "/calendar-colors/index.html",
-    "precache-manifest.3642e2abc23302e7d3ea1b6b6e82890c.js": "/calendar-colors/precache-manifest.3642e2abc23302e7d3ea1b6b6e82890c.js",
+    "precache-manifest.aac5da3fa107fc79bc26f22258e8b8c2.js": "/calendar-colors/precache-manifest.aac5da3fa107fc79bc26f22258e8b8c2.js",
     "service-worker.js": "/calendar-colors/service-worker.js",
-    "static/css/main.62dcaf35.chunk.css.map": "/calendar-colors/static/css/main.62dcaf35.chunk.css.map"
+    "static/css/main.9cd4f139.chunk.css.map": "/calendar-colors/static/css/main.9cd4f139.chunk.css.map"
   }
 }
